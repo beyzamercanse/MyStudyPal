@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/font/rowdies.xml" value="0.37864583333333335" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.375" />
       </map>
     </option>
