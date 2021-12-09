@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding.startBtn.setOnClickListener(v -> timer(25));
         binding.shortbrkBtn.setOnClickListener(v -> goToShortBreak());
+        binding.longbrkBtn.setOnClickListener(v -> goToLongBreak());
 
     }
 
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         }.start();
     }
 
-    public void updateTimeDisplay() {
+    private void updateTimeDisplay() {
         int displayMins = (int) (timeLeft / 60000);
         int displaySeconds = (int) ((timeLeft % 60000)/ 1000);
 
@@ -59,8 +60,15 @@ public class MainActivity extends AppCompatActivity {
         binding.timer.setText(displayTime);
     }
 
-    public void goToShortBreak() {
+    private void goToShortBreak() {
         Intent intent = new Intent(this, ShortBreak.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    private void goToLongBreak() {
+        Intent intent = new Intent(this, LongBreak.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 

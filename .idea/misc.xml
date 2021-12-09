@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/font/rowdies.xml" value="0.37864583333333335" />
+        <entry key="app/src/main/res/layout/activity_long_break.xml" value="0.2875" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_short_break.xml" value="0.1" />
       </map>

@@ -6,11 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 
-import com.example.mystudypal.databinding.ActivityShortBreakBinding;
+import com.example.mystudypal.databinding.ActivityLongBreakBinding;
 
-public class ShortBreak extends AppCompatActivity {
+public class LongBreak extends AppCompatActivity {
 
-    private ActivityShortBreakBinding binding;
+    private ActivityLongBreakBinding binding;
     private long timeLeft;
     private CountDownTimer pomoTimer;
     private boolean timerOn;
@@ -18,12 +18,13 @@ public class ShortBreak extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityShortBreakBinding.inflate(getLayoutInflater());
+        binding = ActivityLongBreakBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.startBtn.setOnClickListener(v -> timer(5));
+        binding.startBtn.setOnClickListener(v -> timer(15));
         binding.pomodoroBtn.setOnClickListener(v -> goToMain());
-        binding.longbrkBtn.setOnClickListener(v -> goToLongBreak());
+        binding.shortbrkBtn.setOnClickListener(v -> goToShortBreak());
+
     }
 
     private void timer(int timerMins) {
@@ -58,8 +59,8 @@ public class ShortBreak extends AppCompatActivity {
         binding.timer.setText(displayTime);
     }
 
-    private void goToLongBreak() {
-        Intent intent = new Intent(this, LongBreak.class);
+    private void goToShortBreak() {
+        Intent intent = new Intent(this, ShortBreak.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
@@ -69,4 +70,5 @@ public class ShortBreak extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
+
 }

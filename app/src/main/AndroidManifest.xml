@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyStudyPal">
         <activity
+            android:name=".LongBreak"
+            android:exported="true" />
+        <activity
             android:name=".ShortBreak"
             android:exported="true" />
         <activity
