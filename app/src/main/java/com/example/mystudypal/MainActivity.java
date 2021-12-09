@@ -2,8 +2,11 @@ package com.example.mystudypal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.View;
 
 import com.example.mystudypal.databinding.ActivityMainBinding;
 
@@ -20,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         binding.startBtn.setOnClickListener(v -> timer(25));
-
+        binding.shortbrkBtn.setOnClickListener(v -> goToShortBreak());
 
     }
 
@@ -46,11 +49,36 @@ public class MainActivity extends AppCompatActivity {
 
         String displayTime;
 
-        displayTime = "" + displayMins;
+        displayTime = "";
+        if (displayMins < 10) { displayTime += "0"; }
+        displayTime += displayMins;
         displayTime += ":";
         if (displaySeconds < 10) { displayTime += "0"; }
         displayTime += displaySeconds;
 
         binding.timer.setText(displayTime);
     }
+
+    public void goToShortBreak() {
+        Intent intent = new Intent(this, ShortBreak.class);
+        startActivity(intent);
+    }
+
+//    @SuppressLint("ResourceType")
+//    public void startShortBreak() {
+//        View view = this.getWindow().getDecorView();
+//        view.setBackgroundColor(getResources().getColor(R.color.background_green));
+//        binding.startBtn.setTextColor(getResources().getColor(R.color.dark_green));
+//        binding.reportBtn.setBackgroundColor(getResources().getColor(R.color.light_green));
+//        binding.settingsBtn.setBackgroundColor(getResources().getColor(R.color.light_green));
+//        binding.frameLayout.setBackgroundColor(getResources().getColor(R.color.light_green));
+//        binding.pomodoroBtn.setBackgroundColor(getResources().getColor(R.color.light_green));
+//        binding.timer.setText("05:00");
+//        binding.shortbrkBtn.setBackgroundColor(getResources().getColor(R.color.dark_green));
+//        binding.longbrkBtn.setBackgroundColor(getResources().getColor(R.color.light_green));
+//
+//        timer(5);
+//
+//    }
+
 }
