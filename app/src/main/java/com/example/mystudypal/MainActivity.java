@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.pomodoroBtn.setOnClickListener(v -> timer(25));
+        binding.startBtn.setOnClickListener(v -> timer(25));
 
 
     }
