@@ -24,6 +24,8 @@ public class LongBreak extends AppCompatActivity {
         binding.startBtn.setOnClickListener(v -> timer(15));
         binding.pomodoroBtn.setOnClickListener(v -> goToMain());
         binding.shortbrkBtn.setOnClickListener(v -> goToShortBreak());
+        binding.reportBtn.setOnClickListener(v -> goToReport());
+        binding.settingsBtn.setOnClickListener(v -> goToSetting());
 
     }
 
@@ -67,6 +69,18 @@ public class LongBreak extends AppCompatActivity {
 
     private void goToMain() {
         Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    private void goToReport() {
+        Intent intent = new Intent(this, Report.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    private  void goToSetting() {
+        Intent intent = new Intent(this, Setting.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }

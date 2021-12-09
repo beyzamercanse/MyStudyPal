@@ -24,6 +24,8 @@ public class ShortBreak extends AppCompatActivity {
         binding.startBtn.setOnClickListener(v -> timer(5));
         binding.pomodoroBtn.setOnClickListener(v -> goToMain());
         binding.longbrkBtn.setOnClickListener(v -> goToLongBreak());
+        binding.reportBtn.setOnClickListener(v -> goToReport());
+        binding.settingsBtn.setOnClickListener(v -> goToSetting());
     }
 
     private void timer(int timerMins) {
@@ -66,6 +68,18 @@ public class ShortBreak extends AppCompatActivity {
 
     private void goToMain() {
         Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    private void goToReport() {
+        Intent intent = new Intent(this, Report.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    private  void goToSetting() {
+        Intent intent = new Intent(this, Setting.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }

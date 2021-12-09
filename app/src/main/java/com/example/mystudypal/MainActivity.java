@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
         binding.startBtn.setOnClickListener(v -> timer(25));
         binding.shortbrkBtn.setOnClickListener(v -> goToShortBreak());
         binding.longbrkBtn.setOnClickListener(v -> goToLongBreak());
+        binding.reportBtn.setOnClickListener(v -> goToReport());
+        binding.settingsBtn.setOnClickListener(v -> goToSetting());
 
     }
 
@@ -72,21 +74,17 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    @SuppressLint("ResourceType")
-//    public void startShortBreak() {
-//        View view = this.getWindow().getDecorView();
-//        view.setBackgroundColor(getResources().getColor(R.color.background_green));
-//        binding.startBtn.setTextColor(getResources().getColor(R.color.dark_green));
-//        binding.reportBtn.setBackgroundColor(getResources().getColor(R.color.light_green));
-//        binding.settingsBtn.setBackgroundColor(getResources().getColor(R.color.light_green));
-//        binding.frameLayout.setBackgroundColor(getResources().getColor(R.color.light_green));
-//        binding.pomodoroBtn.setBackgroundColor(getResources().getColor(R.color.light_green));
-//        binding.timer.setText("05:00");
-//        binding.shortbrkBtn.setBackgroundColor(getResources().getColor(R.color.dark_green));
-//        binding.longbrkBtn.setBackgroundColor(getResources().getColor(R.color.light_green));
-//
-//        timer(5);
-//
-//    }
+    private void goToReport() {
+        Intent intent = new Intent(this, Report.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    private  void goToSetting() {
+        Intent intent = new Intent(this, Setting.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
 
 }
